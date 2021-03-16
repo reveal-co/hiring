@@ -25,7 +25,7 @@ Clone this repository on your local machine.
 
 ### Expectations
 
-Unless told otherwise, pick the sections of the test that you feel most comfortable with. Our goal is to see how you shine in your area of expertise, not what you do not know.
+Unless told otherwise, we would like you to pick at least 2 sections of the test (the ones you feel the most comfortable with). Our goal is to see how you shine in your area of expertise, not what you do not know.
 
 We do not expect you to work on all tests, although it is always a plus to do as much as possible. But please, do not spend night and days on the test, this is really not the goal.
 
