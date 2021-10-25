@@ -31,13 +31,8 @@ or zip the code and send it to us by mail.
 ## Building a Partnership Suggestion service for Reveal Companies
 
 
-To leverage Reveal platform, Companies need to be connected with Partners.
-In this exercise you will build a service to suggest new partners to existing companies.
-For any new company, we will retrieve the list of companies we could suggest as partners.
-Once computed, we will store those suggested partners in a database and schedule a sequence of emails 
-to notify users that we found potential partners for them.
-Users can accept or decline those suggestions and from the moment they performed one of these actions we should stop
-sending them emails mentioning the suggestion.
+The goal of this exercise is to create a workflow to suggest relevant companies that already use Reveal to any new joining companies.
+This will be done by scheduling a sequence of emails containing suggested partners that a user can approve or dismiss.
 
 To implement that we will follow the **[Ports & Adapters Architecture](https://medium.com/idealo-tech-blog/hexagonal-ports-adapters-architecture-e3617bcf00a0)**
 You will build the **domain logic** of of the Suggestions Service.
@@ -65,7 +60,7 @@ The response from the service is a list of tuples like :
 ]
 ```
 5. The **Suggestions Service** then ask the **Timer Service** to set a timer to be notified when the first email of the sequence
-has to be sent (in the above example 3600).
+has to be sent (in the above example 3600 seconds).
 6. When the first breakpoint is reached the **Timer Service** notifies the **Suggestion Service**.
 If some suggested partners are still not accepted nor declined, the **Suggestion Service** asks the **Growth Policies Service**
 for the title, content and recipients of the email to be sent. Those values depend on three parameters:
@@ -81,9 +76,10 @@ which notifies the **Suggestions Service**, that persists this action.
 
 You are tasked to implement the **Domain Logic** of the **Suggestions Service**.
 
-The **Inbound Adapters** (which flow is represented by the green arrows on the schema), will be represented by the public interfaces of the Domain Logic.
-An example is given in [`suggestion_service/suggestions.py`](./suggestion_service/suggestions.py)
+The **Inbound Adapters** (which flow is represented by the green arrows on the schema) should not be present in the solution 
+and are represented by the public interfaces of the Domain Logic.
+Those public interfaces are the only way an inbound adapter can communicate with the domain.
+An example of public interface is given in [`suggestion_service/suggestions.py`](./suggestion_service/suggestions.py)
 
 The **Outbound Adapters** (which flow is represented by the orange arrows on the schema), should be classes/methods/interfaces which exist but their body is empty. In Python, they would only contain `raise NotImplemented`
 An example is given in [`suggestion_service/adapters/mailer_adapter.py`](./suggestion_service/adapters/mailer_adapter.py)
-
