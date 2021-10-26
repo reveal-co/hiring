@@ -10,21 +10,21 @@ With this test we will evaluate your **modeling**, **coding** and **testing** sk
 
 ## General instructions
 
-We expect you to spend 2 to 3 hours on the exercise.
-If you could not complete it or if you could not spend that much time on it, 
-feel free to send us back what you had time to do. In any case you can join to your code
-an explanation of what you did, what is missing, what you would like to improve ...
+It typically takes 3 hours go to through this test. Be as thorough as you can, but every solution, even if incomplete, is valuable to us in understanding how you code.
+In any case, also include in the README.md the things that you considered but didn't have time to implement, future improvements, and other considerations.
 Plus we would rather see an incomplete tested code than a complete untested code ... ;)
+
+At any step, if you have any question, do not hesitate to email us :) 
 
 ### Programming Language
 
 In this repository, you will find some Python files that aim to help understanding the exercise.
-Feel free to use **any other programming language** you feel more comfortable with.
+Feel free to use **any other programming language among Ruby, Javascript, Typescript, Java** you feel more comfortable with.
 
 
 ### Deliver your results
 
-Once you have finished working on the test, you can either create a fork of that repo 
+Once you have finished working on the test, you can either push it to your own Github / Gitlab repository and give us access
 or zip the code and send it to us by mail.
 
 
