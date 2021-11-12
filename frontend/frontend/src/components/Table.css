@@ -1,0 +1,21 @@
+#cities-table-wrapper {
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+tr,
+td {
+  border: 1px solid rgb(0, 78, 102);
+}
+
+th {
+  height: 40px;
+  font-size: 18px;
+}
