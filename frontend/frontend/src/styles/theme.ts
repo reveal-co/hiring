@@ -6,6 +6,13 @@ const theme = createTheme({
 		fontFamily: 'Fkgroteskneue, sans-serif',
 		htmlFontSize: 16
 	},
+	components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true
+      }
+    }
+  },
   palette: {
 		background: {
 			paper: '#f6f2e8'
