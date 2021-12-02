@@ -8,10 +8,12 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography
+  Typography,
+  Tooltip
 } from '@mui/material';
 import LinkIcon  from '@mui/icons-material/Link';
 import LoopIcon  from '@mui/icons-material/Loop';
+import ErrorIcon from '@mui/icons-material/Error';
 import { styled } from '@mui/system';
 import useSwr from 'swr';
 import fetcher from '../utils/fetcher';
@@ -42,7 +44,7 @@ type TCity = {
 export const Table = () => {
   const [cities, setCities] = useState<TCity[] | null>(null);
 
-  const { data, isValidating } = useSwr(`http://localhost:3001/api/cities`, fetcher) ;
+  const { data, isValidating, error } = useSwr(`http://localhost:3001/api/cities`, fetcher) ;
 
   useEffect(() => {
     setCities(data);
@@ -52,17 +54,23 @@ export const Table = () => {
     <Box id="cities-table-wrapper" sx={{
       height: '100%',
       flexGrow: 1,
-      overflowY: 'scroll'
+      overflowY: 'scroll',
+      pl: 4
     }}>
       <TableContainer sx={{ maxHeight: '100%' }}>
         <MuiTable stickyHeader>
           <TableHeader />
           <TableBody>
             {
+              error && (
+                <Box component='tr' sx={{ display: "inline-flex", mx: 'auto' }}>
+                  <td><ErrorIcon sx={{ mr:1 }} />Couldn't not load data</td>
+                </Box>
+              )
+            }
+            {
               isValidating ? (
-                <span className='App-logo'>
-                  <LoopIcon />
-                </span>
+                <tr><td><LoopIcon fontSize='large' className='App-logo' /></td></tr>
               ) : (
                 cities?.map(({ name, country, subcountry, geonameid }) => (
                   <TableRow key={geonameid}>
@@ -70,9 +78,11 @@ export const Table = () => {
                     <TableCell>{country}</TableCell>
                     <TableCell>{subcountry}</TableCell>
                     <TableCell>
-                      <IconButton href={`https://www.geonames.org/${geonameid}/`}>
-                        <LinkIcon />
-                      </IconButton>
+                      <Tooltip title='External Link'>
+                        <IconButton href={`https://www.geonames.org/${geonameid}/`} target='_blank'>
+                          <LinkIcon />
+                        </IconButton>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
               )

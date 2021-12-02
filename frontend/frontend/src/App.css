@@ -12,7 +12,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    transform-origin: center;
+    animation: App-logo-spin infinite 1s linear;
   }
 }
 

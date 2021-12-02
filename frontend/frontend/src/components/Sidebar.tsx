@@ -4,16 +4,18 @@ import {
   Select,
   SelectChangeEvent,
   Typography,
-  Chip,
   Grid,
-  OutlinedInput,
   FormControl,
-  Checkbox,
-  FormLabel
+  FormLabel,
+  Tooltip
 } from '@mui/material';
-import { ReactNode, useCallback, useEffect, useState } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import useSwr from 'swr';
 import fetcher from '../utils/fetcher';
+
+const ITEM_HEIGHT = 40;
+const MENU_HEIGHT = ITEM_HEIGHT * 6;
+const MENU_WIDTH = 250;
 
 type TCountry = {
   name: string
@@ -26,26 +28,13 @@ interface IFilterSelect {
 }
 
 const FilterSelect = ({ criteria, title }: IFilterSelect) => {
-  const [selectData, setSelectData] = useState<TCountry[] | null>(null);
-  const [selected, setSelected] = useState<String[]>([]);
-
+  const [selected, setSelected] = useState<string>('');
   const handleChange = useCallback((event: SelectChangeEvent<typeof selected>) => {
     const { target: { value } } = event;
-    setSelected(
-      // On autofill we get a the stringified value.
-      typeof value === 'string' ? value.split(',') : value
-    );
+    setSelected(value);
   }, []);
 
-  const { data, isValidating } = useSwr(`http://localhost:3001/api/${criteria}`, fetcher) ;
-
-  useEffect(() => {
-    console.log(selected)
-  }, [selected]);
-
-  useEffect(() => {
-    setSelectData(data);
-  }, [data]);
+  const { data, isValidating, error } = useSwr(`http://localhost:3001/api/${criteria}`, fetcher) ;
 
   return (
     <>
@@ -56,23 +45,29 @@ const FilterSelect = ({ criteria, title }: IFilterSelect) => {
           </Typography>
         </FormLabel>
         <Select
+          sx={{ width: MENU_WIDTH }}
           id={`${criteria}-select`}
-          multiple
-          fullWidth
-          value={isValidating ? ['...'] : []}
-          onChange={handleChange}
-          input={<OutlinedInput id='select-multiple-countries' />}
+          disabled={isValidating || !!error}
+          value={selected}
           renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.25 }}>
-              {selected.map((value) => (<Chip key={value} label={value} />))}
-            </Box>
+            <Tooltip title={selected}>
+              <Typography noWrap textOverflow='ellipsis' fontWeight='bold' align='left'>
+                {selected}
+              </Typography>
+            </Tooltip>
           )}
+          onChange={handleChange}
+          MenuProps={{ sx: { height: MENU_HEIGHT, maxWidth: MENU_WIDTH }}}
         >
           {
-            data?.map(({ name, count }: TCountry, index: number) => (
-              <MenuItem key={index} value={name}>
-                <Checkbox checked={selected.indexOf(name) > -1} />
-                <span><strong>{name}</strong>&nbsp;{`(${count})`}</span>
+            data?.map(({name, count}: TCountry, index: number) => (
+              <MenuItem key={index} value={name} sx={{ height: ITEM_HEIGHT, justifyContent: 'space-between' }}>
+                <Typography fontWeight='bold' noWrap textOverflow='ellipsis'>
+                  {name}
+                </Typography>
+                <Typography sx={{ ml: 1 }} align='right'>
+                  {`(${count})`}
+                </Typography>
               </MenuItem>
             ))
           }
@@ -83,18 +78,9 @@ const FilterSelect = ({ criteria, title }: IFilterSelect) => {
 }
 
 export const Sidebar = () => {
-  // const [countries, setCountries] = useState<TCountry[] | null>(null);
-
-  // const { data, isValidating } = useSwr('http://localhost:3001/api/countries') ;
-
-  // useEffect(() => {
-  //   setCountries(data);
-  //   console.log(data);
-  // }, [data]);
-
   return (
-    <Box id='sidebar' sx={{ width: 200 }}>
-      <Grid container margin={2}>
+    <Box id='sidebar' sx={{ width: MENU_WIDTH }}>
+      <Grid container padding={2}>
         <Grid item xs={12}>
           <Typography component='h2' variant='h4' align='left' paragraph>
             Cities App
