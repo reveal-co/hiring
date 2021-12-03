@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import {
   Box,
-  IconButton,
   TableBody,
   Table as MuiTable,
   TableCell as MuiTableCell,
@@ -9,9 +8,8 @@ import {
   TableHead,
   TableRow,
   Typography,
-  Tooltip
+  Link
 } from '@mui/material';
-import LinkIcon  from '@mui/icons-material/Link';
 import LoopIcon  from '@mui/icons-material/Loop';
 import ErrorIcon from '@mui/icons-material/Error';
 import { styled } from '@mui/system';
@@ -21,7 +19,7 @@ import fetcher from '../utils/fetcher';
 const TableHeader = () => (
   <TableHead>
     <TableRow>
-    {['Name', 'Country', 'Subcountry', 'Link'].map(value => (
+    {['Name', 'Country', 'Sub-country', 'Link to geoname page'].map(value => (
       <TableCell key={value}>
         <Typography fontWeight='bold'>{value}</Typography>
       </TableCell>
@@ -54,8 +52,7 @@ export const Table = () => {
     <Box id="cities-table-wrapper" sx={{
       height: '100%',
       flexGrow: 1,
-      overflowY: 'scroll',
-      pl: 4
+      overflowY: 'scroll'
     }}>
       <TableContainer sx={{ maxHeight: '100%' }}>
         <MuiTable stickyHeader>
@@ -78,11 +75,11 @@ export const Table = () => {
                     <TableCell>{country}</TableCell>
                     <TableCell>{subcountry}</TableCell>
                     <TableCell>
-                      <Tooltip title='External Link'>
-                        <IconButton href={`https://www.geonames.org/${geonameid}/`} target='_blank'>
-                          <LinkIcon />
-                        </IconButton>
-                      </Tooltip>
+                      <Link href={`https://www.geonames.org/${geonameid}/`} target='_blank'>
+                        <Typography noWrap textOverflow='ellipsis'>
+                         {`https://www.geonames.org/${geonameid}/`}
+                        </Typography>
+                      </Link>
                     </TableCell>
                   </TableRow>
               )
