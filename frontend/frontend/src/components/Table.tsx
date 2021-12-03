@@ -56,7 +56,7 @@ export const Table = ({ filterBy }: TableProps) => {
   const [pageIndex, setPageIndex] = useState(0);
 
   const { data, isValidating, error } = useSwr(
-    filterBy ? `/api/cities?country=${filterBy}` : `api/cities`,
+    filterBy ? `/api/cities?country=${filterBy}` : `/api/cities`,
     fetcher
   );
 
@@ -74,16 +74,16 @@ export const Table = ({ filterBy }: TableProps) => {
             {
               error && (
                 <Box component='tr' sx={{ display: 'inline-flex' }}>
-                  <td><ErrorIcon sx={{ mr:1 }} />Couldn't not load data</td>
+                  <ErrorIcon sx={{ mr:1 }} />Couldn't not load data
                 </Box>
               )
             }
             {
               isValidating ? (
-                <tr><td><LoopIcon fontSize='large' className='App-logo' /></td></tr>
+                <LoopIcon fontSize='large' className='App-logo' />
               ) : (
                 cities?.map(({ name, country, subcountry, geonameid }) => (
-                  <TableRow key={geonameid}>
+                  <TableRow key={geonameid} sx={{ ":hover": { backgroundColor: 'grey.200' }}}>
                     <TableCell>{name}</TableCell>
                     <TableCell>{country}</TableCell>
                     <TableCell>{subcountry}</TableCell>
@@ -100,8 +100,6 @@ export const Table = ({ filterBy }: TableProps) => {
           </TableBody>
         </MuiTable>
       </TableContainer>
-      <button onClick={() => setPageIndex(pageIndex - 1)}>Previous</button>
-      <button onClick={() => setPageIndex(pageIndex + 1)}>Next</button>
     </Box>
   );
 };
