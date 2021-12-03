@@ -1,3 +1,6 @@
+const endpoint = process.env.REACT_APP_BACKEND_ENDPOINT;
+
 export default async function fetcher (url: string) {
-  return fetch(url).then((response) => response.json());
+  const fullUrl = new URL(`${endpoint}${url}`)
+  return fetch(fullUrl.href).then((response) => response.json());
 };

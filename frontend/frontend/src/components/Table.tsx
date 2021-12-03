@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   Box,
   TableBody,
@@ -32,35 +32,48 @@ const TableCell =styled(MuiTableCell)(({ theme }) => (`
   padding: ${theme.spacing(1, 3)};
 `));
 
-type TCity = {
+type City = {
   name: string;
   country?: string;
   subcountry?: string;
   geonameid?: number;
 };
 
-export const Table = () => {
-  const [cities, setCities] = useState<TCity[] | null>(null);
+interface TableProps {
+  filterBy: string | null
+}
 
-  const { data, isValidating, error } = useSwr(`http://localhost:3001/api/cities`, fetcher) ;
+// const doFetch = (args: any) => {
+//   console.log(args);
+//   const url = `/api/cities?country=`;
+//   return fetcher(url);
+// }
+
+const STEP = 500;
+
+export const Table = ({ filterBy }: TableProps) => {
+  const [cities, setCities] = useState<City[] | null>(null);
+  const [pageIndex, setPageIndex] = useState(0);
+
+  const { data, isValidating, error } = useSwr(
+    filterBy ? `/api/cities?country=${filterBy}` : `api/cities`,
+    fetcher
+  );
 
   useEffect(() => {
     setCities(data);
-  }, [data]);
+    // console.log(filterBy);
+  }, [data, filterBy]);
 
   return (
-    <Box id="cities-table-wrapper" sx={{
-      height: '100%',
-      flexGrow: 1,
-      overflowY: 'scroll'
-    }}>
+    <Box id='cities-table-wrapper' sx={{ height: '100%', flexGrow: 1, overflowY: 'scroll' }}>
       <TableContainer sx={{ maxHeight: '100%' }}>
         <MuiTable stickyHeader>
           <TableHeader />
           <TableBody>
             {
               error && (
-                <Box component='tr' sx={{ display: "inline-flex", mx: 'auto' }}>
+                <Box component='tr' sx={{ display: 'inline-flex' }}>
                   <td><ErrorIcon sx={{ mr:1 }} />Couldn't not load data</td>
                 </Box>
               )
@@ -87,6 +100,8 @@ export const Table = () => {
           </TableBody>
         </MuiTable>
       </TableContainer>
+      <button onClick={() => setPageIndex(pageIndex - 1)}>Previous</button>
+      <button onClick={() => setPageIndex(pageIndex + 1)}>Next</button>
     </Box>
   );
 };

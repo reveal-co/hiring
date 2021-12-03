@@ -1,60 +1,81 @@
-import {
-  Box,
-  Typography,
-  List,
-  ListItem,
-  ButtonBase
-} from '@mui/material';
+import { Box, Typography, List, ListItemButton } from '@mui/material';
 import { useCallback, useState } from 'react';
+import ErrorIcon from '@mui/icons-material/Error';
 import useSwr from 'swr';
 import fetcher from '../utils/fetcher';
 
 const ITEM_HEIGHT = 40;
 const MENU_WIDTH = 250;
 
-type TCountry = {
+type Country = {
   name: string
   count: number
 };
 
-const CountryList = () => {
-  const [selected, setSelected] = useState<string>('');
-  const handleChange = useCallback((event: any) => {
-    const { target: { value } } = event;
-    setSelected(value);
-  }, []);
-
-  const { data, isValidating, error } = useSwr(`http://localhost:3001/api/countries`, fetcher) ;
-
-  return (
-    <>
-      <List component='div'>
-        {
-          data?.map(({name, count}: TCountry, index: number) => (
-            <ListItem
-              component={ButtonBase}
-              key={index} value={name} sx={{ height: ITEM_HEIGHT, justifyContent: 'space-between' }}>
-              <Typography fontWeight='bold' noWrap textOverflow='ellipsis'>
-                {name}
-              </Typography>
-              <Typography sx={{ ml: 1 }} align='right'>
-                {`(${count})`}
-              </Typography>
-            </ListItem>
-          ))
-        }
-      </List>
-    </>
-  )
+interface SidebarProps {
+  onChange: (value: string) => void
 }
 
-export const Sidebar = () => {
+export const Sidebar = ({ onChange }: SidebarProps) => {
+  const [selected, setSelected] = useState<string>('');
+  const handleChange = useCallback((value) => {
+    setSelected(value);
+    onChange(value);
+  }, []);
+
+  const { data, isValidating, error } = useSwr(
+    `/api/countries`,
+    fetcher,
+    { revalidateOnFocus: false }
+  );
+
+  if (error) {
+    return (
+      <Box sx={{ display: 'inline-flex' }}>
+        <ErrorIcon sx={{ mr:1 }} />
+        <Typography>Couldn't not load data</Typography>
+      </Box>
+    );
+  }
+
   return (
     <Box id='sidebar' sx={{ width: MENU_WIDTH, height: '100%', overflowY: 'scroll' }}>
-      <Typography sx={{ position: 'absolute' }} component='h2' variant='h4' align='left' paragraph>
-        Cities App
-      </Typography>
-      <CountryList />
+      <List>
+        {
+          data
+            && (
+              <>
+                <ListItemButton
+                  disabled={isValidating}
+                  onClick={() => { handleChange('') }}
+                  selected={selected === ''}
+                >
+                  <Typography fontWeight='bold' noWrap textOverflow='ellipsis' align='center'>
+                    (all cities)
+                  </Typography>
+                </ListItemButton>
+                {
+                  data?.map(({name, count}: Country, index: number) => (
+                    <ListItemButton
+                      key={index}
+                      disabled={isValidating}
+                      onClick={() => { handleChange(name) }}
+                      selected={selected === name}
+                      sx={{ height: ITEM_HEIGHT, justifyContent: 'space-between' }}
+                    >
+                      <Typography fontWeight='bold' noWrap textOverflow='ellipsis'>
+                        {name}
+                      </Typography>
+                      <Typography sx={{ ml: 1 }} align='right'>
+                        {`(${count})`}
+                      </Typography>
+                    </ListItemButton>
+                  ))
+                }
+              </>
+            )
+          }
+      </List>
     </Box>
   );
 };
