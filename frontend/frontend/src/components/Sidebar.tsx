@@ -1,7 +1,7 @@
-import { Box, Typography, List, ListItemButton } from '@mui/material';
-import { useCallback, useState } from 'react';
-import ErrorIcon from '@mui/icons-material/Error';
+import { useCallback, useState, useRef } from 'react';
 import useSwr from 'swr';
+import { Box, Typography, List, ListItemButton } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
 import fetcher from '../utils/fetcher';
 
 const ITEM_HEIGHT = 40;
@@ -18,16 +18,13 @@ interface SidebarProps {
 
 export const Sidebar = ({ onChange }: SidebarProps) => {
   const [selected, setSelected] = useState<string>('');
-  const handleChange = useCallback((value) => {
+  const onChangeRef = useRef(onChange);
+  const handleChange = useCallback(value => {
     setSelected(value);
-    onChange(value);
+    onChangeRef.current(value);
   }, []);
 
-  const { data, isValidating, error } = useSwr(
-    `/api/countries`,
-    fetcher,
-    { revalidateOnFocus: false }
-  );
+  const { data, isValidating, error } = useSwr(`/api/countries`, fetcher);
 
   if (error) {
     return (
