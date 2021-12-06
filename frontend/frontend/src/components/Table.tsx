@@ -92,8 +92,6 @@ interface TableContentProps {
   data: City[] | null
 }
 
-
-
 export function TableContent ({ data }: TableContentProps) {
   const [rows, setRows] = useState(data);
 
