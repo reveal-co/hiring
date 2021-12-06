@@ -6,7 +6,6 @@ import {
   Table as MuiTable,
   TableCell as MuiTableCell,
   TableContainer,
-  TablePagination,
   TableHead,
   TableRow,
   Typography,
@@ -97,29 +96,14 @@ interface TableContentProps {
 
 export function TableContent ({ data }: TableContentProps) {
   const [rows, setRows] = useState(data);
-  const [count, setCount] = useState<number>(0);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(100);
 
   useEffect(() => {
-    if (data) {
-      setCount(data.length);
-    }
-    setRows(data);
+    data && setRows(data);
   }, [data]);
-
-  const handleChangeRowsPerPage = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  }, []);
-
-  const handleChangePage = useCallback((event: unknown, newPage: number) => {
-    setPage(newPage)
-  }, []);
 
   return (
     <>
-      {rows?.map(({ name, country, subcountry, geonameid }) => ( // TODO: update table when pagination changes
+      {rows?.map(({ name, country, subcountry, geonameid }) => (
         <TableRow key={geonameid} sx={{ ':hover': { backgroundColor: 'grey.200' }}}>
           <TableCell>{name}</TableCell>
           <TableCell>{country}</TableCell>
@@ -133,20 +117,6 @@ export function TableContent ({ data }: TableContentProps) {
           </TableCell>
         </TableRow>
       ))}
-      <TableRow>
-        {
-          count > rowsPerPage && (
-            <TablePagination
-              rowsPerPageOptions={[100, 250, 500]}
-              count={count}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-            />
-          )
-        }
-      </TableRow>
     </>
   );
 }

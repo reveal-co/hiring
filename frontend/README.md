@@ -20,11 +20,11 @@ When a user opens the app, they see a list of "all cities" which are in the data
 
 A user can:
 
-- Click on "(all cities)" to see an unfiltered list of cities in the table;
-- Click on a specific country on the left side to see only cities from that country;
-- See the number of cities in a particular country in a parenthetical next to the country name (e.g. "France (230)");
-- See which country is currently selected with some visual indicator (e.g. a change in the background color of the country item);
-- Click on the city link to open the Geoname page for that city in a new tab (the format is this: `https://www.geonames.org/<geonameid>/`).
+- ✅ Click on "(all cities)" to see an unfiltered list of cities in the table;
+- ✅ Click on a specific country on the left side to see only cities from that country;
+- ✅ See the number of cities in a particular country in a parenthetical next to the country name (e.g. "France (230)");
+- ✅ See which country is currently selected with some visual indicator (e.g. a change in the background color of the country item);
+- ✅ Click on the city link to open the Geoname page for that city in a new tab (the format is this: `https://www.geonames.org/<geonameid>/`).
 
 The table row for a city includes the following elements; please make sure to include all of them:
 
