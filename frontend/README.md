@@ -49,7 +49,7 @@ We will evaluate your solution using the following assessments:
 
 We will NOT evaluate your solution based on how the UI looks.
 
-Please think about how you test at least one aspect of the code.
+Please think about how you test at least one aspect of the code - and we are thinking about something more complex that just testing the display. Make sure to test a user action, that will change the application state for instance.
 
 ### API Documentation
 
