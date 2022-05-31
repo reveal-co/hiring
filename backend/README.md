@@ -14,7 +14,7 @@ It typically takes 3 hours go to through this test. Be as thorough as you can, b
 In any case, also include in the README.md the things that you considered but didn't have time to implement, future improvements, and other considerations.
 Plus we would rather see an incomplete tested code than a complete untested code ... ;)
 
-At any step, if you have any question, do not hesitate to email us :) 
+At any step, if you have any question, do not hesitate to email us :)
 
 ### Programming Language
 
@@ -40,12 +40,12 @@ For that, you need also to define interfaces between the adapters & the domain l
 But you must not implement any adapters.
 
 On the following schema the Domain Logic is represented with an Hexagon.
-Adapters 
+Adapters
 ![Schema](problem_schema.png)
 
 
 The workflow to implement is the following:
-1. When a new company joins Reveal, the **Companies Service** notifies the **Suggestions Service** that it happened. 
+1. When a new company joins Reveal, the **Companies Service** notifies the **Suggestions Service** that it happened.
 2. The Suggestion Service must then decide which partnerships to suggest to the new company.
 To do so, the Suggestion Service asks the **Companies Service** (through the **Companies Adapter**) for companies with same `country` and `industry`.
 3. The computed suggestions are stored in the database using the **Persistence Adapter**
@@ -53,7 +53,7 @@ To do so, the Suggestion Service asks the **Companies Service** (through the **C
 The response from the service is a list of tuples like :
 ```
 [
-    #  (email_type, time_to_wait_before_sending_the_email_in_seconds) 
+    #  (email_type, time_to_wait_before_sending_the_email_in_seconds)
     (1, 3600),
     (2, 86400),
     (4, 604800),
@@ -66,9 +66,9 @@ If some suggested partners are still not accepted nor declined, the **Suggestion
 for the title, content and recipients of the email to be sent. Those values depend on three parameters:
 - The primary key of the company we want to notify
 - The email type
-- The list of suggested partners that are not accepted or declined. 
+- The list of suggested partners that are not accepted or declined.
 7. The **Mailer Service** can then be called to send the notification email to recipients.
-8. Once the first email is sent the next emails can be scheduled and sent applying the same process 
+8. Once the first email is sent the next emails can be scheduled and sent applying the same process
 (Timer -> Growth Policies -> Mailer).
 9. At any given point in time after the suggestion was made, a user might accept or decline it in the **Web Application**,
 which notifies the **Suggestions Service**, that persists this action.
@@ -76,10 +76,10 @@ which notifies the **Suggestions Service**, that persists this action.
 
 You are tasked to implement the **Domain Logic** of the **Suggestions Service**.
 
-The **Inbound Adapters** (which flow is represented by the green arrows on the schema) should not be present in the solution 
+The **Inbound Adapters** (which flow is represented by the green arrows on the schema) should not be present in the solution
 and are represented by the public interfaces of the Domain Logic.
 Those public interfaces are the only way an inbound adapter can communicate with the domain.
-An example of public interface is given in [`suggestion_service/suggestions.py`](./suggestion_service/suggestions.py)
+An example of public interface is given in [`example_domain_logic.py`](./example_domain_logic.py)
 
 The **Outbound Adapters** (which flow is represented by the orange arrows on the schema), should be classes/methods/interfaces which exist but their body is empty. In Python, they would only contain `raise NotImplemented`
-An example is given in [`suggestion_service/adapters/mailer_adapter.py`](./suggestion_service/adapters/mailer_adapter.py)
+An example is given in [`example_adapter.py`](./example_adapter.py)
