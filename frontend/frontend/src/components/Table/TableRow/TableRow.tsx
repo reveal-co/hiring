@@ -1,16 +1,21 @@
-import React from 'react'
-import { Button, TableCell, TableRow as MUITableRow } from '@mui/material'
+import React from "react";
+import { Button, TableCell, TableRow as MUITableRow } from "@mui/material";
 
-import { GEO_BASE_URL } from '../../../constants'
+import { GEO_BASE_URL } from "../../../constants";
 
 interface RowProps {
-  country: string
-  geonameid: number
-  name: string
-  subcountry: string
+  country: string;
+  geonameid: number;
+  name: string;
+  subcountry: string;
 }
 
-export const TableRow = ({ country, geonameid, name, subcountry }: RowProps) => {
+export const TableRow = ({
+  country,
+  geonameid,
+  name,
+  subcountry,
+}: RowProps) => {
   return (
     <MUITableRow key={geonameid}>
       <TableCell align="left">{country}</TableCell>
@@ -21,5 +26,5 @@ export const TableRow = ({ country, geonameid, name, subcountry }: RowProps) => 
       </TableCell>
       <TableCell align="left">{subcountry}</TableCell>
     </MUITableRow>
-  )
-}
+  );
+};

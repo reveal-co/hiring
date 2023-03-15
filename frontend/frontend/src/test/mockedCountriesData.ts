@@ -1,978 +1,978 @@
 export const COUNTRIES = [
   {
-    name: 'Afghanistan',
+    name: "Afghanistan",
     count: 48,
   },
   {
-    name: 'Aland Islands',
+    name: "Aland Islands",
     count: 1,
   },
   {
-    name: 'Albania',
+    name: "Albania",
     count: 20,
   },
   {
-    name: 'Algeria',
+    name: "Algeria",
     count: 247,
   },
   {
-    name: 'American Samoa',
+    name: "American Samoa",
     count: 1,
   },
   {
-    name: 'Andorra',
+    name: "Andorra",
     count: 2,
   },
   {
-    name: 'Angola',
+    name: "Angola",
     count: 27,
   },
   {
-    name: 'Anguilla',
+    name: "Anguilla",
     count: 1,
   },
   {
-    name: 'Antigua and Barbuda',
+    name: "Antigua and Barbuda",
     count: 1,
   },
   {
-    name: 'Argentina',
+    name: "Argentina",
     count: 203,
   },
   {
-    name: 'Armenia',
+    name: "Armenia",
     count: 17,
   },
   {
-    name: 'Aruba',
+    name: "Aruba",
     count: 3,
   },
   {
-    name: 'Australia',
+    name: "Australia",
     count: 204,
   },
   {
-    name: 'Austria',
+    name: "Austria",
     count: 35,
   },
   {
-    name: 'Azerbaijan',
+    name: "Azerbaijan",
     count: 56,
   },
   {
-    name: 'Bahamas',
+    name: "Bahamas",
     count: 3,
   },
   {
-    name: 'Bahrain',
+    name: "Bahrain",
     count: 8,
   },
   {
-    name: 'Bangladesh',
+    name: "Bangladesh",
     count: 98,
   },
   {
-    name: 'Barbados',
+    name: "Barbados",
     count: 1,
   },
   {
-    name: 'Belarus',
+    name: "Belarus",
     count: 50,
   },
   {
-    name: 'Belgium',
+    name: "Belgium",
     count: 184,
   },
   {
-    name: 'Belize',
+    name: "Belize",
     count: 4,
   },
   {
-    name: 'Benin',
+    name: "Benin",
     count: 29,
   },
   {
-    name: 'Bermuda',
+    name: "Bermuda",
     count: 1,
   },
   {
-    name: 'Bhutan',
+    name: "Bhutan",
     count: 4,
   },
   {
-    name: 'Bolivia',
+    name: "Bolivia",
     count: 27,
   },
   {
-    name: 'Bonaire, Saint Eustatius and Saba',
+    name: "Bonaire, Saint Eustatius and Saba",
     count: 1,
   },
   {
-    name: 'Bosnia and Herzegovina',
+    name: "Bosnia and Herzegovina",
     count: 21,
   },
   {
-    name: 'Botswana',
+    name: "Botswana",
     count: 18,
   },
   {
-    name: 'Brazil',
+    name: "Brazil",
     count: 1200,
   },
   {
-    name: 'British Virgin Islands',
+    name: "British Virgin Islands",
     count: 2,
   },
   {
-    name: 'Brunei',
+    name: "Brunei",
     count: 4,
   },
   {
-    name: 'Bulgaria',
+    name: "Bulgaria",
     count: 55,
   },
   {
-    name: 'Burkina Faso',
+    name: "Burkina Faso",
     count: 32,
   },
   {
-    name: 'Burundi',
+    name: "Burundi",
     count: 10,
   },
   {
-    name: 'Cambodia',
+    name: "Cambodia",
     count: 26,
   },
   {
-    name: 'Cameroon',
+    name: "Cameroon",
     count: 64,
   },
   {
-    name: 'Canada',
+    name: "Canada",
     count: 221,
   },
   {
-    name: 'Cape Verde',
+    name: "Cape Verde",
     count: 4,
   },
   {
-    name: 'Cayman Islands',
+    name: "Cayman Islands",
     count: 1,
   },
   {
-    name: 'Central African Republic',
+    name: "Central African Republic",
     count: 20,
   },
   {
-    name: 'Chad',
+    name: "Chad",
     count: 24,
   },
   {
-    name: 'Chile',
+    name: "Chile",
     count: 97,
   },
   {
-    name: 'China',
+    name: "China",
     count: 799,
   },
   {
-    name: 'Christmas Island',
+    name: "Christmas Island",
     count: 1,
   },
   {
-    name: 'Cocos Islands',
+    name: "Cocos Islands",
     count: 1,
   },
   {
-    name: 'Colombia',
+    name: "Colombia",
     count: 217,
   },
   {
-    name: 'Comoros',
+    name: "Comoros",
     count: 2,
   },
   {
-    name: 'Cook Islands',
+    name: "Cook Islands",
     count: 1,
   },
   {
-    name: 'Costa Rica',
+    name: "Costa Rica",
     count: 42,
   },
   {
-    name: 'Croatia',
+    name: "Croatia",
     count: 26,
   },
   {
-    name: 'Cuba',
+    name: "Cuba",
     count: 127,
   },
   {
-    name: 'Curacao',
+    name: "Curacao",
     count: 1,
   },
   {
-    name: 'Cyprus',
+    name: "Cyprus",
     count: 7,
   },
   {
-    name: 'Czech Republic',
+    name: "Czech Republic",
     count: 100,
   },
   {
-    name: 'Democratic Republic of the Congo',
+    name: "Democratic Republic of the Congo",
     count: 66,
   },
   {
-    name: 'Denmark',
+    name: "Denmark",
     count: 50,
   },
   {
-    name: 'Djibouti',
+    name: "Djibouti",
     count: 5,
   },
   {
-    name: 'Dominica',
+    name: "Dominica",
     count: 1,
   },
   {
-    name: 'Dominican Republic',
+    name: "Dominican Republic",
     count: 46,
   },
   {
-    name: 'East Timor',
+    name: "East Timor",
     count: 10,
   },
   {
-    name: 'Ecuador',
+    name: "Ecuador",
     count: 66,
   },
   {
-    name: 'Egypt',
+    name: "Egypt",
     count: 120,
   },
   {
-    name: 'El Salvador',
+    name: "El Salvador",
     count: 35,
   },
   {
-    name: 'Equatorial Guinea',
+    name: "Equatorial Guinea",
     count: 3,
   },
   {
-    name: 'Eritrea',
+    name: "Eritrea",
     count: 6,
   },
   {
-    name: 'Estonia',
+    name: "Estonia",
     count: 9,
   },
   {
-    name: 'Ethiopia',
+    name: "Ethiopia",
     count: 78,
   },
   {
-    name: 'Falkland Islands',
+    name: "Falkland Islands",
     count: 1,
   },
   {
-    name: 'Faroe Islands',
+    name: "Faroe Islands",
     count: 1,
   },
   {
-    name: 'Fiji',
+    name: "Fiji",
     count: 4,
   },
   {
-    name: 'Finland',
+    name: "Finland",
     count: 68,
   },
   {
-    name: 'France',
+    name: "France",
     count: 633,
   },
   {
-    name: 'French Guiana',
+    name: "French Guiana",
     count: 5,
   },
   {
-    name: 'French Polynesia',
+    name: "French Polynesia",
     count: 3,
   },
   {
-    name: 'French Southern Territories',
+    name: "French Southern Territories",
     count: 1,
   },
   {
-    name: 'Gabon',
+    name: "Gabon",
     count: 9,
   },
   {
-    name: 'Gambia',
+    name: "Gambia",
     count: 6,
   },
   {
-    name: 'Georgia',
+    name: "Georgia",
     count: 22,
   },
   {
-    name: 'Germany',
+    name: "Germany",
     count: 1055,
   },
   {
-    name: 'Ghana',
+    name: "Ghana",
     count: 58,
   },
   {
-    name: 'Gibraltar',
+    name: "Gibraltar",
     count: 1,
   },
   {
-    name: 'Greece',
+    name: "Greece",
     count: 110,
   },
   {
-    name: 'Greenland',
+    name: "Greenland",
     count: 1,
   },
   {
-    name: 'Grenada',
+    name: "Grenada",
     count: 1,
   },
   {
-    name: 'Guadeloupe',
+    name: "Guadeloupe",
     count: 10,
   },
   {
-    name: 'Guam',
+    name: "Guam",
     count: 6,
   },
   {
-    name: 'Guatemala',
+    name: "Guatemala",
     count: 81,
   },
   {
-    name: 'Guernsey',
+    name: "Guernsey",
     count: 1,
   },
   {
-    name: 'Guinea',
+    name: "Guinea",
     count: 18,
   },
   {
-    name: 'Guinea-Bissau',
+    name: "Guinea-Bissau",
     count: 2,
   },
   {
-    name: 'Guyana',
+    name: "Guyana",
     count: 3,
   },
   {
-    name: 'Haiti',
+    name: "Haiti",
     count: 26,
   },
   {
-    name: 'Honduras',
+    name: "Honduras",
     count: 24,
   },
   {
-    name: 'Hong Kong',
+    name: "Hong Kong",
     count: 7,
   },
   {
-    name: 'Hungary',
+    name: "Hungary",
     count: 113,
   },
   {
-    name: 'Iceland',
+    name: "Iceland",
     count: 4,
   },
   {
-    name: 'India',
+    name: "India",
     count: 2443,
   },
   {
-    name: 'Indonesia',
+    name: "Indonesia",
     count: 372,
   },
   {
-    name: 'Iran',
+    name: "Iran",
     count: 195,
   },
   {
-    name: 'Iraq',
+    name: "Iraq",
     count: 68,
   },
   {
-    name: 'Ireland',
+    name: "Ireland",
     count: 32,
   },
   {
-    name: 'Isle of Man',
+    name: "Isle of Man",
     count: 1,
   },
   {
-    name: 'Israel',
+    name: "Israel",
     count: 72,
   },
   {
-    name: 'Italy',
+    name: "Italy",
     count: 571,
   },
   {
-    name: 'Ivory Coast',
+    name: "Ivory Coast",
     count: 57,
   },
   {
-    name: 'Jamaica',
+    name: "Jamaica",
     count: 11,
   },
   {
-    name: 'Japan',
+    name: "Japan",
     count: 736,
   },
   {
-    name: 'Jersey',
+    name: "Jersey",
     count: 1,
   },
   {
-    name: 'Jordan',
+    name: "Jordan",
     count: 26,
   },
   {
-    name: 'Kazakhstan',
+    name: "Kazakhstan",
     count: 79,
   },
   {
-    name: 'Kenya',
+    name: "Kenya",
     count: 52,
   },
   {
-    name: 'Kiribati',
+    name: "Kiribati",
     count: 1,
   },
   {
-    name: 'Kosovo',
+    name: "Kosovo",
     count: 21,
   },
   {
-    name: 'Kuwait',
+    name: "Kuwait",
     count: 18,
   },
   {
-    name: 'Kyrgyzstan',
+    name: "Kyrgyzstan",
     count: 23,
   },
   {
-    name: 'Laos',
+    name: "Laos",
     count: 12,
   },
   {
-    name: 'Latvia',
+    name: "Latvia",
     count: 14,
   },
   {
-    name: 'Lebanon',
+    name: "Lebanon",
     count: 13,
   },
   {
-    name: 'Lesotho',
+    name: "Lesotho",
     count: 8,
   },
   {
-    name: 'Liberia',
+    name: "Liberia",
     count: 10,
   },
   {
-    name: 'Libya',
+    name: "Libya",
     count: 41,
   },
   {
-    name: 'Liechtenstein',
+    name: "Liechtenstein",
     count: 1,
   },
   {
-    name: 'Lithuania',
+    name: "Lithuania",
     count: 35,
   },
   {
-    name: 'Luxembourg',
+    name: "Luxembourg",
     count: 3,
   },
   {
-    name: 'Macao',
+    name: "Macao",
     count: 1,
   },
   {
-    name: 'Macedonia',
+    name: "Macedonia",
     count: 37,
   },
   {
-    name: 'Madagascar',
+    name: "Madagascar",
     count: 84,
   },
   {
-    name: 'Malawi',
+    name: "Malawi",
     count: 17,
   },
   {
-    name: 'Malaysia',
+    name: "Malaysia",
     count: 138,
   },
   {
-    name: 'Maldives',
+    name: "Maldives",
     count: 1,
   },
   {
-    name: 'Mali',
+    name: "Mali",
     count: 20,
   },
   {
-    name: 'Malta',
+    name: "Malta",
     count: 5,
   },
   {
-    name: 'Marshall Islands',
+    name: "Marshall Islands",
     count: 2,
   },
   {
-    name: 'Martinique',
+    name: "Martinique",
     count: 9,
   },
   {
-    name: 'Mauritania',
+    name: "Mauritania",
     count: 11,
   },
   {
-    name: 'Mauritius',
+    name: "Mauritius",
     count: 11,
   },
   {
-    name: 'Mayotte',
+    name: "Mayotte",
     count: 3,
   },
   {
-    name: 'Mexico',
+    name: "Mexico",
     count: 561,
   },
   {
-    name: 'Micronesia',
+    name: "Micronesia",
     count: 1,
   },
   {
-    name: 'Moldova',
+    name: "Moldova",
     count: 20,
   },
   {
-    name: 'Monaco',
+    name: "Monaco",
     count: 2,
   },
   {
-    name: 'Mongolia',
+    name: "Mongolia",
     count: 21,
   },
   {
-    name: 'Montenegro',
+    name: "Montenegro",
     count: 8,
   },
   {
-    name: 'Montserrat',
+    name: "Montserrat",
     count: 2,
   },
   {
-    name: 'Morocco',
+    name: "Morocco",
     count: 71,
   },
   {
-    name: 'Mozambique',
+    name: "Mozambique",
     count: 25,
   },
   {
-    name: 'Myanmar',
+    name: "Myanmar",
     count: 64,
   },
   {
-    name: 'Namibia',
+    name: "Namibia",
     count: 13,
   },
   {
-    name: 'Nauru',
+    name: "Nauru",
     count: 1,
   },
   {
-    name: 'Nepal',
+    name: "Nepal",
     count: 39,
   },
   {
-    name: 'Netherlands',
+    name: "Netherlands",
     count: 258,
   },
   {
-    name: 'New Caledonia',
+    name: "New Caledonia",
     count: 3,
   },
   {
-    name: 'New Zealand',
+    name: "New Zealand",
     count: 35,
   },
   {
-    name: 'Nicaragua',
+    name: "Nicaragua",
     count: 36,
   },
   {
-    name: 'Niger',
+    name: "Niger",
     count: 25,
   },
   {
-    name: 'Nigeria',
+    name: "Nigeria",
     count: 242,
   },
   {
-    name: 'Niue',
+    name: "Niue",
     count: 1,
   },
   {
-    name: 'Norfolk Island',
+    name: "Norfolk Island",
     count: 1,
   },
   {
-    name: 'North Korea',
+    name: "North Korea",
     count: 57,
   },
   {
-    name: 'Northern Mariana Islands',
+    name: "Northern Mariana Islands",
     count: 1,
   },
   {
-    name: 'Norway',
+    name: "Norway",
     count: 33,
   },
   {
-    name: 'Oman',
+    name: "Oman",
     count: 25,
   },
   {
-    name: 'Pakistan',
+    name: "Pakistan",
     count: 312,
   },
   {
-    name: 'Palau',
+    name: "Palau",
     count: 1,
   },
   {
-    name: 'Palestinian Territory',
+    name: "Palestinian Territory",
     count: 39,
   },
   {
-    name: 'Panama',
+    name: "Panama",
     count: 24,
   },
   {
-    name: 'Papua New Guinea',
+    name: "Papua New Guinea",
     count: 13,
   },
   {
-    name: 'Paraguay',
+    name: "Paraguay",
     count: 25,
   },
   {
-    name: 'Peru',
+    name: "Peru",
     count: 107,
   },
   {
-    name: 'Philippines',
+    name: "Philippines",
     count: 439,
   },
   {
-    name: 'Pitcairn',
+    name: "Pitcairn",
     count: 1,
   },
   {
-    name: 'Poland',
+    name: "Poland",
     count: 327,
   },
   {
-    name: 'Portugal',
+    name: "Portugal",
     count: 113,
   },
   {
-    name: 'Puerto Rico',
+    name: "Puerto Rico",
     count: 21,
   },
   {
-    name: 'Qatar',
+    name: "Qatar",
     count: 5,
   },
   {
-    name: 'Republic of the Congo',
+    name: "Republic of the Congo",
     count: 12,
   },
   {
-    name: 'Reunion',
+    name: "Reunion",
     count: 14,
   },
   {
-    name: 'Romania',
+    name: "Romania",
     count: 135,
   },
   {
-    name: 'Russia',
+    name: "Russia",
     count: 1093,
   },
   {
-    name: 'Rwanda',
+    name: "Rwanda",
     count: 11,
   },
   {
-    name: 'Saint Barthelemy',
+    name: "Saint Barthelemy",
     count: 1,
   },
   {
-    name: 'Saint Helena',
+    name: "Saint Helena",
     count: 1,
   },
   {
-    name: 'Saint Kitts and Nevis',
+    name: "Saint Kitts and Nevis",
     count: 1,
   },
   {
-    name: 'Saint Lucia',
+    name: "Saint Lucia",
     count: 1,
   },
   {
-    name: 'Saint Martin',
+    name: "Saint Martin",
     count: 1,
   },
   {
-    name: 'Saint Pierre and Miquelon',
+    name: "Saint Pierre and Miquelon",
     count: 1,
   },
   {
-    name: 'Saint Vincent and the Grenadines',
+    name: "Saint Vincent and the Grenadines",
     count: 2,
   },
   {
-    name: 'Samoa',
+    name: "Samoa",
     count: 1,
   },
   {
-    name: 'San Marino',
+    name: "San Marino",
     count: 1,
   },
   {
-    name: 'Sao Tome and Principe',
+    name: "Sao Tome and Principe",
     count: 1,
   },
   {
-    name: 'Saudi Arabia',
+    name: "Saudi Arabia",
     count: 60,
   },
   {
-    name: 'Senegal',
+    name: "Senegal",
     count: 29,
   },
   {
-    name: 'Serbia',
+    name: "Serbia",
     count: 48,
   },
   {
-    name: 'Seychelles',
+    name: "Seychelles",
     count: 1,
   },
   {
-    name: 'Sierra Leone',
+    name: "Sierra Leone",
     count: 10,
   },
   {
-    name: 'Singapore',
+    name: "Singapore",
     count: 1,
   },
   {
-    name: 'Sint Maarten',
+    name: "Sint Maarten",
     count: 1,
   },
   {
-    name: 'Slovakia',
+    name: "Slovakia",
     count: 52,
   },
   {
-    name: 'Slovenia',
+    name: "Slovenia",
     count: 9,
   },
   {
-    name: 'Solomon Islands',
+    name: "Solomon Islands",
     count: 1,
   },
   {
-    name: 'Somalia',
+    name: "Somalia",
     count: 27,
   },
   {
-    name: 'South Africa',
+    name: "South Africa",
     count: 160,
   },
   {
-    name: 'South Georgia and the South Sandwich Islands',
+    name: "South Georgia and the South Sandwich Islands",
     count: 1,
   },
   {
-    name: 'South Korea',
+    name: "South Korea",
     count: 119,
   },
   {
-    name: 'South Sudan',
+    name: "South Sudan",
     count: 12,
   },
   {
-    name: 'Spain',
+    name: "Spain",
     count: 569,
   },
   {
-    name: 'Sri Lanka',
+    name: "Sri Lanka",
     count: 52,
   },
   {
-    name: 'Sudan',
+    name: "Sudan",
     count: 46,
   },
   {
-    name: 'Suriname',
+    name: "Suriname",
     count: 2,
   },
   {
-    name: 'Svalbard and Jan Mayen',
+    name: "Svalbard and Jan Mayen",
     count: 1,
   },
   {
-    name: 'Swaziland',
+    name: "Swaziland",
     count: 3,
   },
   {
-    name: 'Sweden',
+    name: "Sweden",
     count: 92,
   },
   {
-    name: 'Switzerland',
+    name: "Switzerland",
     count: 83,
   },
   {
-    name: 'Syria',
+    name: "Syria",
     count: 74,
   },
   {
-    name: 'Taiwan',
+    name: "Taiwan",
     count: 21,
   },
   {
-    name: 'Tajikistan',
+    name: "Tajikistan",
     count: 25,
   },
   {
-    name: 'Tanzania',
+    name: "Tanzania",
     count: 185,
   },
   {
-    name: 'Thailand',
+    name: "Thailand",
     count: 220,
   },
   {
-    name: 'Togo',
+    name: "Togo",
     count: 17,
   },
   {
-    name: 'Tonga',
+    name: "Tonga",
     count: 1,
   },
   {
-    name: 'Trinidad and Tobago',
+    name: "Trinidad and Tobago",
     count: 13,
   },
   {
-    name: 'Tunisia',
+    name: "Tunisia",
     count: 72,
   },
   {
-    name: 'Turkey',
+    name: "Turkey",
     count: 383,
   },
   {
-    name: 'Turkmenistan',
+    name: "Turkmenistan",
     count: 24,
   },
   {
-    name: 'Turks and Caicos Islands',
+    name: "Turks and Caicos Islands",
     count: 1,
   },
   {
-    name: 'Tuvalu',
+    name: "Tuvalu",
     count: 1,
   },
   {
-    name: 'U.S. Virgin Islands',
+    name: "U.S. Virgin Islands",
     count: 2,
   },
   {
-    name: 'Uganda',
+    name: "Uganda",
     count: 47,
   },
   {
-    name: 'Ukraine',
+    name: "Ukraine",
     count: 257,
   },
   {
-    name: 'United Arab Emirates',
+    name: "United Arab Emirates",
     count: 13,
   },
   {
-    name: 'United Kingdom',
+    name: "United Kingdom",
     count: 513,
   },
   {
-    name: 'United States',
+    name: "United States",
     count: 2699,
   },
   {
-    name: 'Uruguay',
+    name: "Uruguay",
     count: 31,
   },
   {
-    name: 'Uzbekistan',
+    name: "Uzbekistan",
     count: 96,
   },
   {
-    name: 'Vanuatu',
+    name: "Vanuatu",
     count: 1,
   },
   {
-    name: 'Vatican',
+    name: "Vatican",
     count: 1,
   },
   {
-    name: 'Venezuela',
+    name: "Venezuela",
     count: 106,
   },
   {
-    name: 'Vietnam',
+    name: "Vietnam",
     count: 83,
   },
   {
-    name: 'Wallis and Futuna',
+    name: "Wallis and Futuna",
     count: 1,
   },
   {
-    name: 'Western Sahara',
+    name: "Western Sahara",
     count: 3,
   },
   {
-    name: 'Yemen',
+    name: "Yemen",
     count: 23,
   },
   {
-    name: 'Zambia',
+    name: "Zambia",
     count: 29,
   },
   {
-    name: 'Zimbabwe',
+    name: "Zimbabwe",
     count: 26,
   },
-]
+];

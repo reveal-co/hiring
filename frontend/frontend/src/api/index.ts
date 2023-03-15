@@ -1,2 +1,2 @@
-export * from './fetchCities'
-export * from './fetchCountries'
+export * from "./fetchCities";
+export * from "./fetchCountries";

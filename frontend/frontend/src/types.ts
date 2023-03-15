@@ -1,9 +1,9 @@
 export interface Country {
-  name: string
-  count: number
+  name: string;
+  count: number;
 }
 
 export interface CountriesListProps {
-  selectedCountry: string | null
-  handleSelect: (name: string | null) => () => void
+  selectedCountry: string | null;
+  handleSelect: (name: string | null) => () => void;
 }

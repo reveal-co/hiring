@@ -1,10 +1,10 @@
-import React from 'react'
-import { Typography } from '@mui/material'
+import React from "react";
+import { Typography } from "@mui/material";
 
-import { CountriesListProps } from '../../types'
-import { CountriesList } from './components'
+import { CountriesListProps } from "../../types";
+import { CountriesList } from "./components";
 
-import './Sidebar.css'
+import "./Sidebar.css";
 
 export const Sidebar = ({
   selectedCountry,
@@ -18,5 +18,5 @@ export const Sidebar = ({
         handleSelect={handleSelect}
       />
     </div>
-  )
-}
+  );
+};

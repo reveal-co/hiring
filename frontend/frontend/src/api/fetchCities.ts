@@ -1,12 +1,12 @@
-import { BASE_URL, NUM_TO_REQUEST } from '../constants'
-import { City } from '../components/Table'
+import { BASE_URL, NUM_TO_REQUEST } from "../constants";
+import { City } from "../components/Table";
 
 interface fetchParams {
-  filter: string
-  from?: number
-  setCities: (value: React.SetStateAction<City[] | null>) => void
-  setHasMoreData: (value: React.SetStateAction<boolean>) => void
-  initial?: boolean
+  filter: string;
+  from?: number;
+  setCities: (value: React.SetStateAction<City[] | null>) => void;
+  setHasMoreData: (value: React.SetStateAction<boolean>) => void;
+  initial?: boolean;
 }
 
 export const fetchCities = ({
@@ -22,10 +22,10 @@ export const fetchCities = ({
       initial
         ? setCities(data)
         : setCities((cities) =>
-            cities && data ? [...cities, ...data] : cities,
-          )
+            cities && data ? [...cities, ...data] : cities
+          );
       if (data.length < NUM_TO_REQUEST) {
-        setHasMoreData(false)
+        setHasMoreData(false);
       }
-    })
-}
+    });
+};

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import {
   Table as MUITable,
   TableContainer,
@@ -6,69 +6,77 @@ import {
   TableCell,
   TableBody,
   TableRow as MUITableRow,
-} from '@mui/material'
-import Paper from '@mui/material/Paper'
+} from "@mui/material";
+import Paper from "@mui/material/Paper";
 
-import { fetchCities } from '../../api'
-import { throttle } from '../../utils/throttle'
-import { TableRow } from './TableRow'
+import { fetchCities } from "../../api";
+import { throttle } from "../../utils/throttle";
+import { TableRow } from "./TableRow";
 
-import './Table.css'
+import "./Table.css";
 
 export type City = {
-  name: string
-  country: string
-  subcountry: string
-  geonameid: number
-}
+  name: string;
+  country: string;
+  subcountry: string;
+  geonameid: number;
+};
 
 interface CityTableProps {
-  country: string | null
+  country: string | null;
 }
 
 export const Table = ({ country }: CityTableProps) => {
-  const [cities, setCities] = useState<City[] | null>(null)
-  const [hasMoreData, setHasMoreData] = useState(true)
+  const [cities, setCities] = useState<City[] | null>(null);
+  const [hasMoreData, setHasMoreData] = useState(true);
 
   const tableRef = useRef<HTMLTableElement | null>(null);
-  const filter = useMemo(() => country ? `&country=${country}` : '', [country]);
+  const filter = useMemo(
+    () => (country ? `&country=${country}` : ""),
+    [country]
+  );
 
   useEffect(() => {
-    setHasMoreData(true)
+    setHasMoreData(true);
     fetchCities({
       filter,
       setCities,
       setHasMoreData,
-      initial: true
-    })
+      initial: true,
+    });
     if (tableRef && tableRef.current && tableRef.current.scrollIntoView) {
       // update scroll position when new country was selected
-      tableRef.current.scrollIntoView()
+      tableRef.current.scrollIntoView();
     }
-  }, [country, filter])
+  }, [country, filter]);
 
   const fetchMore = (from: number) => {
-    if (!hasMoreData) return
+    if (!hasMoreData) return;
     fetchCities({
       filter,
       from,
       setCities,
-      setHasMoreData
-    })
-  }
+      setHasMoreData,
+    });
+  };
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
     const target = e.currentTarget;
     const isAtEnd =
-      target.scrollHeight - Math.ceil(target.scrollTop) <=
-      target.clientHeight
-    if (isAtEnd || !cities) return
-    fetchMore(cities.length)
-  }
+      target.scrollHeight - Math.ceil(target.scrollTop) <= target.clientHeight;
+    if (isAtEnd || !cities) return;
+    fetchMore(cities.length);
+  };
 
   return (
     <TableContainer component={Paper} onScroll={throttle(handleScroll, 100)}>
-      <MUITable sx={{ minWidth: 650 }} size="small" aria-label="cities table" ref={tableRef} stickyHeader>
+      <MUITable
+        sx={{ minWidth: 650 }}
+        size="small"
+        aria-label="cities table"
+        ref={tableRef}
+        stickyHeader
+      >
         <TableHead>
           <MUITableRow>
             <TableCell align="left">Country</TableCell>
@@ -89,5 +97,5 @@ export const Table = ({ country }: CityTableProps) => {
         </TableBody>
       </MUITable>
     </TableContainer>
-  )
-}
+  );
+};

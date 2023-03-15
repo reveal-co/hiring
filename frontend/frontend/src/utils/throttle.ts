@@ -1,13 +1,13 @@
 export function throttle(func: Function, timeout: number) {
-  let ready: boolean = true
+  let ready: boolean = true;
   return (...args: any) => {
     if (!ready) {
-      return
+      return;
     }
-    ready = false
-    func(...args)
+    ready = false;
+    func(...args);
     setTimeout(() => {
-      ready = true
-    }, timeout)
-  }
+      ready = true;
+    }, timeout);
+  };
 }
