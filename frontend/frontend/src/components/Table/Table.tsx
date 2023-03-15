@@ -41,7 +41,7 @@ export const Table = ({ country }: CityTableProps) => {
       setHasMoreData,
       initial: true
     })
-    if (tableRef.current) {
+    if (tableRef && tableRef.current && tableRef.current.scrollIntoView) {
       // update scroll position when new country was selected
       tableRef.current.scrollIntoView()
     }

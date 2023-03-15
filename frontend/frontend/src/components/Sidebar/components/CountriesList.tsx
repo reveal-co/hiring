@@ -34,7 +34,7 @@ export const CountriesList = ({
         {countries.map(({ name, count }) => {
           const labelId = `countries-list-label-${name}`
           return (
-            <ListItem key={name} disablePadding className={getClassName(name)}>
+            <ListItem key={name} disablePadding className={getClassName(name)} data-testid={name}>
               <ListItemButton role="button" onClick={handleSelect(name)} dense>
                 <ListItemText id={labelId} primary={`${name} (${count})`} />
               </ListItemButton>
