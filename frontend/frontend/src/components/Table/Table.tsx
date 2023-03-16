@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import {
   Table as MUITable,
   TableContainer,
@@ -29,6 +35,7 @@ interface CityTableProps {
 export const Table = ({ country }: CityTableProps) => {
   const [cities, setCities] = useState<City[] | null>(null);
   const [hasMoreData, setHasMoreData] = useState(true);
+  const [userScroll, setUserScroll] = useState(true);
 
   const tableRef = useRef<HTMLTableElement | null>(null);
   const filter = useMemo(
@@ -37,28 +44,32 @@ export const Table = ({ country }: CityTableProps) => {
   );
 
   useEffect(() => {
+    setUserScroll(false);
     setHasMoreData(true);
+    if (tableRef && tableRef.current && tableRef.current.scrollIntoView) {
+      tableRef.current.scrollIntoView(true);
+    }
     fetchCities({
       filter,
       setCities,
       setHasMoreData,
       initial: true,
-    });
-    if (tableRef && tableRef.current && tableRef.current.scrollIntoView) {
-      // update scroll position when new country was selected
-      tableRef.current.scrollIntoView();
-    }
-  }, [country, filter]);
+      from: 0,
+    }).then(() => setUserScroll(true));
+  }, [filter]);
 
-  const fetchMore = (from: number) => {
-    if (!hasMoreData) return;
-    fetchCities({
-      filter,
-      from,
-      setCities,
-      setHasMoreData,
-    });
-  };
+  const fetchMore = useCallback(
+    (from: number) => {
+      if (!hasMoreData || !userScroll) return;
+      fetchCities({
+        filter,
+        from,
+        setCities,
+        setHasMoreData,
+      });
+    },
+    [filter, hasMoreData, userScroll]
+  );
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
     const target = e.currentTarget;

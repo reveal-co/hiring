@@ -9,23 +9,21 @@ interface fetchParams {
   initial?: boolean;
 }
 
-export const fetchCities = ({
+export const fetchCities = async ({
   filter,
   setCities,
   setHasMoreData,
   initial = false,
   from = 0,
 }: fetchParams) => {
-  fetch(`${BASE_URL}/cities?from=${from}&limit=${NUM_TO_REQUEST}${filter}`)
-    .then((response) => response.json())
-    .then((data) => {
-      initial
-        ? setCities(data)
-        : setCities((cities) =>
-            cities && data ? [...cities, ...data] : cities
-          );
-      if (data.length < NUM_TO_REQUEST) {
-        setHasMoreData(false);
-      }
-    });
+  const response = await fetch(
+    `${BASE_URL}/cities?from=${from}&limit=${NUM_TO_REQUEST}${filter}`
+  );
+  const data = await response.json();
+  initial
+    ? setCities(data)
+    : setCities((cities) => (cities ? [...cities, ...data] : cities));
+  if (data.length < NUM_TO_REQUEST) {
+    setHasMoreData(false);
+  }
 };
